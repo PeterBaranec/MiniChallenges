@@ -1,8 +1,9 @@
 import { playlistArr } from "/playlist.js";
 
-const playlistHtml = playlistArr
-  .map(function (playlist) {
-    return `
+function getPlaylistHtml(playlistArr) {
+  const playlist = playlistArr
+    .map(function (playlist) {
+      return `
 <section class="card">
     <div class="card-start">
         <img src="/images/${playlist.albumArt}">
@@ -16,7 +17,9 @@ const playlistHtml = playlistArr
     </div>
 </section>
         `;
-  })
-  .join("");
+    })
+    .join("");
+  return playlist;
+}
 
-document.getElementById("container").innerHTML = playlistHtml;
+document.getElementById("container").innerHTML = getPlaylistHtml(playlistArr);
